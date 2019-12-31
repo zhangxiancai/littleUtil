@@ -10,9 +10,9 @@ import java.util.Date;
 
 public class Main {
 
-    static String dir="C:\\Users\\先才\\Documents\\Tencent Files\\2870310637\\FileRecv\\log\\";
-    static int[] sensors={2,4,5,6};//雷达编号集合
-    static String resDir1="雷达数据\\";//结果目录名
+    static String dir="E:\\radar-data\\楼下-停车-10bin\\";
+    static int[] sensors={2,4,5,6,7};//雷达编号集合
+    static String resDir1="雷达\\";//结果目录名
 
     static int sensorNumb;//当前编号
 
@@ -68,7 +68,7 @@ public class Main {
             int i = 0;
             for (String key : targetOut) {
                 i++;
-                if (i % 6 != 0)
+                if (i % 11 != 0)
                     out.write(key + ",");
                 else
                     out.write(key + "\r\n");
@@ -105,7 +105,7 @@ public class Main {
 
             String[] tars1 = tars0[1].split(", r2=", 2);
 
-            targetOut.add(tars1[0]);
+            targetOut.add(tars1[0]);//第一个
             String[] tars2 = tars1[1].split(", r3=", 2);
             targetOut.add(tars2[0]);//
 
@@ -115,8 +115,24 @@ public class Main {
             String[] tars4 = tars3[1].split(", r5=", 2);
             targetOut.add(tars4[0]);
 
-            String[] tars5 = tars4[1].split(", x1=", 2);
+            String[] tars5 = tars4[1].split(", r6=", 2);
             targetOut.add(tars5[0]);
+
+            String[] tars6 = tars5[1].split(", r7=", 2);
+            targetOut.add(tars6[0]);
+
+            String[] tars7 = tars6[1].split(", r8=", 2);
+            targetOut.add(tars7[0]);
+
+            String[] tars8 = tars7[1].split(", r9=", 2);
+            targetOut.add(tars8[0]);
+
+            String[] tars9 = tars8[1].split(", r10=", 2);
+            targetOut.add(tars9[0]);
+
+
+            String[] tars10 = tars9[1].split(", x1=", 2);
+            targetOut.add(tars10[0]);
 
         }
     }
